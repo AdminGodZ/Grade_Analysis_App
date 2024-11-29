@@ -11,7 +11,6 @@ A modern web application specifically designed for tracking and analyzing Swiss 
 - **Visual Analytics**: View grade trends through interactive charts
 - **Dark/Light Mode**: Toggle between dark and light themes
 - **Persistent Storage**: Grades are saved in browser cookies
-- **Responsive Design**: Works on desktop and mobile devices
 - **Custom Colors**: Personalize subject colors
 - **Docker Support**: Easy deployment with Docker
 
