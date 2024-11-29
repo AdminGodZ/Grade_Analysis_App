@@ -13,21 +13,7 @@ A modern web application specifically designed for tracking and analyzing Swiss 
 - **Persistent Storage**: Grades are saved in browser cookies
 - **Custom Colors**: Personalize subject colors
 - **Docker Support**: Easy deployment with Docker
-
-## Upcoming Features 🚀
-
-This project is actively being developed. Here are some features planned for future releases:
-
-- 📊 Advanced statistics and grade predictions
-- 💾 Data export/import functionality
-- 📱 Progressive Web App (PWA) support
-- 🔄 Cross-device synchronization
-- 📈 More visualization options
-- 🎯 Grade goals and tracking
-- 📝 Notes and comments for grades
-
-Stay tuned for updates! Feel free to suggest new features by creating an issue.
-
+  
 ## Quick Start 🚀
 
 ### Running Locally
