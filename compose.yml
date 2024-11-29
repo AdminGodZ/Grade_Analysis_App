@@ -1,0 +1,10 @@
+services:
+  marks:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    network_mode: "host"  # Use host network mode for VPN compatibility
+    develop:
+      watch:
+        - path: .
+          action: rebuild

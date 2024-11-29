@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Analytics Dashboard</title>
+    <link rel="icon" type="image/png" href="./grade_analytics_logo.svg">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider round"></span>
+        </label>
+        <span class="theme-label">Dark Mode</span>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>Grade Analytics Dashboard</h1>
+        </header>
+        
+        <div class="dashboard-grid">
+            <!-- Summary Cards -->
+            <div class="card overall-average">
+                <h3>Overall Average</h3>
+                <div class="big-number" id="overallAverage">--</div>
+            </div>
+            
+            <div class="card total-subjects">
+                <h3>Total Grades</h3>
+                <div class="big-number" id="totalGrades">0</div>
+            </div>
+
+            <!-- Grade Legend -->
+            <div class="card grade-legend">
+                <h3>Grade Definitions</h3>
+                <div class="grade-definitions">
+                    <div class="grade-def">
+                        <span class="color-box fail"></span>
+                        <span>Under 4.00 (Fail)</span>
+                    </div>
+                    <div class="grade-def">
+                        <span class="color-box warning"></span>
+                        <span>4.00 - 4.50 (Pass)</span>
+                    </div>
+                    <div class="grade-def">
+                        <span class="color-box success"></span>
+                        <span>Above 4.50 (Good)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Subject Form -->
+            <div class="card add-subject">
+                <h3>Add New Grade</h3>
+                <form id="addSubjectForm" class="form-group">
+                    <select id="subjectSelect" required>
+                        <option value="" disabled selected>Select Subject</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="German">German</option>
+                        <option value="English">English</option>
+                        <option value="French">French</option>
+                        <option value="Economy & Law">Economy & Law</option>
+                    </select>
+                    <input type="number" id="subjectGrade" step="0.01" min="1" max="6" placeholder="Enter grade (1.00-6.00)" required>
+                    <button type="submit" class="add-grade-btn">Add Grade</button>
+                </form>
+                <button id="saveAsDefault" class="save-default-btn">Save Current Grades as Default</button>
+            </div>
+
+            <!-- Color Customization -->
+            <div class="card color-customization">
+                <h3>Graph Colors</h3>
+                <div class="color-controls">
+                    <div class="color-control">
+                        <label for="mathColor">Mathematics:</label>
+                        <input type="color" id="mathColor" data-subject="Mathematics">
+                    </div>
+                    <div class="color-control">
+                        <label for="englishColor">English:</label>
+                        <input type="color" id="englishColor" data-subject="English">
+                    </div>
+                    <div class="color-control">
+                        <label for="germanColor">German:</label>
+                        <input type="color" id="germanColor" data-subject="German">
+                    </div>
+                    <div class="color-control">
+                        <label for="frenchColor">French:</label>
+                        <input type="color" id="frenchColor" data-subject="French">
+                    </div>
+                    <div class="color-control">
+                        <label for="economyColor">Economy & Law:</label>
+                        <input type="color" id="economyColor" data-subject="Economy & Law">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grade Goals Calculator -->
+            <div class="card grade-goals">
+                <h3>Grade Goals Calculator</h3>
+                <div class="goals-container">
+                    <div class="goals-header">
+                        <span class="goal-subject">Subject</span>
+                        <span class="goal-current">Current Avg</span>
+                        <span class="goal-pass">To Reach 4.0</span>
+                        <span class="goal-good">To Reach 4.5</span>
+                    </div>
+                    <div id="goalsContent" class="goals-content">
+                        <!-- Goals will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grade Trend Graph -->
+            <div class="card grade-trend">
+                <h3>Grade Trend</h3>
+                <canvas id="gradeChart"></canvas>
+            </div>
+
+            <!-- Subjects List -->
+            <div class="card subjects-list">
+                <div class="grades-header">
+                    <h3>Grades by Subject</h3>
+                    <button id="deleteAllGrades" class="delete-all-btn">Delete All Grades</button>
+                </div>
+                <div class="subjects-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Grades</th>
+                                <th>Average</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="subjectsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>
