@@ -1,9 +1,12 @@
 # Grade Analytics Dashboard 📊
 
-A modern web application for tracking and analyzing academic grades with a beautiful, responsive interface and dark mode support.
+A modern web application specifically designed for tracking and analyzing Swiss academic grades (scale 1-6) with a beautiful, responsive interface and dark mode support.
+
+> **Note**: This is an active development version. More features are planned and will be added in future updates!
 
 ## Features ✨
 
+- **Swiss Grade System**: Optimized for Swiss grading scale (1-6)
 - **Grade Tracking**: Add and manage grades for different subjects
 - **Visual Analytics**: View grade trends through interactive charts
 - **Dark/Light Mode**: Toggle between dark and light themes
@@ -11,6 +14,20 @@ A modern web application for tracking and analyzing academic grades with a beaut
 - **Responsive Design**: Works on desktop and mobile devices
 - **Custom Colors**: Personalize subject colors
 - **Docker Support**: Easy deployment with Docker
+
+## Upcoming Features 🚀
+
+This project is actively being developed. Here are some features planned for future releases:
+
+- 📊 Advanced statistics and grade predictions
+- 💾 Data export/import functionality
+- 📱 Progressive Web App (PWA) support
+- 🔄 Cross-device synchronization
+- 📈 More visualization options
+- 🎯 Grade goals and tracking
+- 📝 Notes and comments for grades
+
+Stay tuned for updates! Feel free to suggest new features by creating an issue.
 
 ## Quick Start 🚀
 
@@ -95,4 +112,11 @@ The application can be containerized using Docker:
 
 ## License 📝
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License, making it free and open for everyone to use, modify, and distribute. You can:
+- ✅ Use the software commercially
+- ✅ Modify the source code
+- ✅ Distribute the software
+- ✅ Use and modify in private
+- ✅ Use in a public project
+
+The only requirement is to include the original license and copyright notice in any copy of the software/source.
