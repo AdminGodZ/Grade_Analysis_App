@@ -19,6 +19,7 @@ function getCookie(name) {
 }
 
 // Initialize data structure
+let subjects = getCookie('subjects') || ['Mathematics', 'German', 'English', 'French', 'Economy & Law'];
 let grades = getCookie('grades');
 if (!grades) {
     grades = {};
@@ -68,6 +69,74 @@ function getGradeColor(grade) {
     } else {
         return getComputedStyle(document.documentElement).getPropertyValue('--success-color').trim();
     }
+}
+
+// Function to save subjects to cookie
+function saveSubjects() {
+    setCookie('subjects', subjects, 3650);
+    updateSubjectsList();
+    updateSubjectDropdown();
+}
+
+// Function to update the subjects list in the UI
+function updateSubjectsList() {
+    const subjectsList = document.getElementById('availableSubjects');
+    subjectsList.innerHTML = '';
+    
+    subjects.forEach(subject => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${subject}
+            <button class="delete-subject-btn" onclick="deleteSubject('${subject}')">Delete</button>
+        `;
+        subjectsList.appendChild(li);
+    });
+}
+
+// Function to update the subject dropdown
+function updateSubjectDropdown() {
+    const subjectSelect = document.getElementById('subjectSelect');
+    const currentValue = subjectSelect.value;
+    subjectSelect.innerHTML = '<option value="" disabled selected>Select Subject</option>';
+    
+    subjects.forEach(subject => {
+        const option = document.createElement('option');
+        option.value = subject;
+        option.textContent = subject;
+        subjectSelect.appendChild(option);
+    });
+    
+    if (currentValue && subjects.includes(currentValue)) {
+        subjectSelect.value = currentValue;
+    }
+}
+
+// Function to add a new subject
+function addNewSubject(subjectName) {
+    if (!subjectName.trim()) return;
+    if (subjects.includes(subjectName)) {
+        alert('This subject already exists!');
+        return;
+    }
+    
+    subjects.push(subjectName);
+    saveSubjects();
+}
+
+// Function to delete a subject
+function deleteSubject(subject) {
+    if (grades[subject] && grades[subject].length > 0) {
+        const confirm = window.confirm(`This subject has grades. Deleting it will also delete all its grades. Continue?`);
+        if (!confirm) return;
+        delete grades[subject];
+        setCookie('grades', grades, 3650);
+        updateChart();
+        updateOverallAverage();
+        updateTotalGrades();
+    }
+    
+    subjects = subjects.filter(s => s !== subject);
+    saveSubjects();
 }
 
 // DOM Elements
@@ -512,6 +581,20 @@ document.getElementById('deleteAllGrades').addEventListener('click', () => {
     }
 });
 
+document.getElementById('addNewSubject').addEventListener('click', () => {
+    const input = document.getElementById('newSubjectInput');
+    addNewSubject(input.value);
+    input.value = '';
+});
+
+document.getElementById('newSubjectInput').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const input = document.getElementById('newSubjectInput');
+        addNewSubject(input.value);
+        input.value = '';
+    }
+});
+
 // Initialize the application
 window.addEventListener('load', () => {
     // Load saved grades from cookie
@@ -528,4 +611,6 @@ window.addEventListener('load', () => {
     renderSubjectsTable();
     updateChart();
     updateGoalsDisplay();
+    updateSubjectsList();
+    updateSubjectDropdown();
 });

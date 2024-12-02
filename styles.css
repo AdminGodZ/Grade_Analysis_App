@@ -375,7 +375,8 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px 20px 20px;
+    padding: 1rem;
+    padding-bottom: 0.5rem;
 }
 
 .grade-pill {
@@ -650,6 +651,92 @@ tr:hover {
 .goal-achieved {
     color: var(--success-color);
     font-weight: 600;
+}
+
+/* Subject Management Styles */
+.subject-management {
+    padding: 1rem;
+}
+
+.subject-input-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.subject-input-container input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.subject-input-container .add-subject-btn {
+    padding: 0.5rem 1rem;
+    background-color: #10b981 !important;  /* Emerald green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.subject-input-container .add-subject-btn:hover {
+    background-color: #059669 !important;  /* Darker emerald on hover */
+}
+
+[data-theme="dark"] .subject-input-container .add-subject-btn {
+    background-color: #059669 !important;  /* Darker emerald for dark mode */
+}
+
+[data-theme="dark"] .subject-input-container .add-subject-btn:hover {
+    background-color: #047857 !important;  /* Even darker emerald on hover */
+}
+
+.subjects-list-container {
+    margin-top: 1rem;
+}
+
+.subjects-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.subjects-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.subjects-list li:last-child {
+    border-bottom: none;
+}
+
+.subjects-list .delete-subject-btn {
+    padding: 0.25rem 0.5rem;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subjects-list .delete-subject-btn:hover {
+    background-color: #c0392b;
+}
+
+[data-theme="dark"] .subjects-list .delete-subject-btn {
+    background-color: #dc2626;
+}
+
+[data-theme="dark"] .subjects-list .delete-subject-btn:hover {
+    background-color: #ef4444;
 }
 
 /* Responsive Design */
