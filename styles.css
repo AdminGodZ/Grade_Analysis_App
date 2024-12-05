@@ -306,12 +306,118 @@ h1, h2, h3 {
     cursor: pointer;
 }
 
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    background-color: #0984e3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #0873c4;
+}
+
+.save-default-btn {
+    background-color: #10b981 !important;  /* Emerald green */
+    color: white;
+    font-weight: 500;
+    padding: 12px 20px !important;
+    margin: 15px auto !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block;
+    width: fit-content;
+}
+
+.save-default-btn:hover {
+    background-color: #059669 !important;  /* Darker emerald on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
 /* Form Styles */
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 20px;
+}
+
+input, select {
+    padding: 12px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    font-size: 1rem;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+input:hover, select:hover {
+    border-color: #0984e3;
+    box-shadow: 0 4px 8px rgba(9, 132, 227, 0.1);
+}
+
+input:focus, select:focus {
+    border-color: #0984e3;
+    box-shadow: 0 0 0 4px rgba(9, 132, 227, 0.15);
+    transform: translateY(-1px);
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230984e3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    padding-right: 45px;
+}
+
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+:root[data-theme="dark"] input:hover,
+:root[data-theme="dark"] select:hover {
+    border-color: #0984e3;
+    background-color: var(--hover-color);
+}
+
+:root[data-theme="dark"] input:focus,
+:root[data-theme="dark"] select:focus {
+    border-color: #0984e3;
+    background-color: var(--hover-color);
+    box-shadow: 0 0 0 4px rgba(9, 132, 227, 0.2);
+}
+
+input::placeholder {
+    color: var(--text-color);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+input:focus::placeholder {
+    opacity: 0.3;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .add-grade-btn {
@@ -396,68 +502,9 @@ h1, h2, h3 {
     font-size: 0.8rem;
 }
 
-input, select {
-    padding: 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-select {
-    background-color: white;
-    color: #2d3436;
-    cursor: pointer;
-    appearance: none;
-    padding-right: 30px;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232d3436' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 16px;
-}
-
-select option {
-    background-color: white;
-    color: #2d3436;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #0984e3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #0873c4;
-}
-
-.save-default-btn {
-    background-color: #10b981 !important;  /* Emerald green */
-    color: white;
-    font-weight: 500;
-    padding: 12px 20px !important;
-    margin: 15px auto !important;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: block;
-    width: fit-content;
-}
-
-.save-default-btn:hover {
-    background-color: #059669 !important;  /* Darker emerald on hover */
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-}
-
 /* Dark mode button styles */
 [data-theme="dark"] button {
     background-color: #3b82f6;
-    color: white;
 }
 
 [data-theme="dark"] button:hover {
@@ -484,6 +531,15 @@ button:hover {
 [data-theme="dark"] .save-default-btn:hover {
     background-color: #047857 !important;  /* Even darker emerald on hover */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Remove Subject Input */
+.remove-subject input {
+    border-radius: 25px;
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
 }
 
 /* Table Styles */
@@ -655,44 +711,74 @@ tr:hover {
 
 /* Subject Management Styles */
 .subject-management {
-    padding: 1rem;
+    padding: 20px;
 }
 
-.subject-input-container {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+.subject-management h3 {
+    margin-bottom: 20px;
 }
 
-.subject-input-container input {
-    flex: 1;
-    padding: 0.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 1rem;
+.subject-management .form-group {
+    margin-bottom: 20px;
 }
 
-.subject-input-container .add-subject-btn {
-    padding: 0.5rem 1rem;
-    background-color: #10b981 !important;  /* Emerald green */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.subject-management input {
+    border-radius: 25px;
+    padding: 12px 20px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.subject-management button {
+    border-radius: 25px;
+    padding: 12px 24px;
     font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.subject-input-container .add-subject-btn:hover {
-    background-color: #059669 !important;  /* Darker emerald on hover */
+.subject-management button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-[data-theme="dark"] .subject-input-container .add-subject-btn {
-    background-color: #059669 !important;  /* Darker emerald for dark mode */
+.subject-management .add-subject-btn {
+    background-color: #10b981;
+    margin-right: 10px;
 }
 
-[data-theme="dark"] .subject-input-container .add-subject-btn:hover {
-    background-color: #047857 !important;  /* Even darker emerald on hover */
+.subject-management .add-subject-btn:hover {
+    background-color: #059669;
+}
+
+.subject-management .remove-subject-btn {
+    background-color: #ef4444;
+}
+
+.subject-management .remove-subject-btn:hover {
+    background-color: #dc2626;
+}
+
+.subject-management .button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+[data-theme="dark"] .subject-management .add-subject-btn {
+    background-color: #059669;
+}
+
+[data-theme="dark"] .subject-management .add-subject-btn:hover {
+    background-color: #047857;
+}
+
+[data-theme="dark"] .subject-management .remove-subject-btn {
+    background-color: #dc2626;
+}
+
+[data-theme="dark"] .subject-management .remove-subject-btn:hover {
+    background-color: #b91c1c;
 }
 
 .subjects-list-container {
@@ -722,9 +808,10 @@ tr:hover {
     background-color: #e74c3c;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-weight: 400;
 }
 
 .subjects-list .delete-subject-btn:hover {
